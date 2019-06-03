@@ -27,6 +27,4 @@ const reddit = require("./reddit");
   // });
   // const results = await reddit.getLatestHot();
   // const results = await reddit.getLatestNew();
-
-  debugger;
 })();
