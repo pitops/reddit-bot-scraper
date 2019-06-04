@@ -39,4 +39,6 @@ const reddit = require("./reddit");
     console.log(`Link: ${result.link}`);
     console.log("\n");
   });
+
+  await reddit.close();
 })();

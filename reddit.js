@@ -20,6 +20,10 @@ const self = {
     });
   },
 
+  close: async () => {
+    await self.browser.close();
+  },
+
   searchFor: keywords => {
     self.keywords = (Array.isArray(keywords) ? keywords : [keywords]).map(
       keyword => keyword.toLowerCase()
