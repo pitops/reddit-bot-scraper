@@ -16,7 +16,7 @@ const self = {
     self.page = await self.browser.newPage();
 
     await self.page.goto(SUBREDDIT_URL(subreddit), {
-      waitUntil: "networkidle0"
+      waitUntil: "networkidle2"
     });
   },
 
@@ -55,7 +55,7 @@ const self = {
         if (!nextPageButton) break;
 
         await nextPageButton.click();
-        await self.page.waitForNavigation({ waitUntil: "networkidle0" });
+        await self.page.waitForNavigation({ waitUntil: "networkidle2" });
       }
     } while (results.length <= (self.limit || self.number));
 
@@ -172,7 +172,7 @@ const self = {
     if (!newTabButton) return;
 
     await newTabButton.click();
-    await self.page.waitForNavigation({ waitUntil: "networkidle0" });
+    await self.page.waitForNavigation({ waitUntil: "networkidle2" });
   }
 };
 

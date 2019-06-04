@@ -2,7 +2,7 @@ const reddit = require("./reddit");
 
 (async () => {
   await reddit.initialize("smallbusiness", {
-    headless: false,
+    headless: true,
     devtools: false
   });
 
@@ -20,11 +20,23 @@ const reddit = require("./reddit");
   //   .searchFor(["reminder", "appointment"])
   //   .get({ limit: 5 });
 
-  // const results = await reddit.getLatest({
-  //   type: "hot",
-  //   number: 100,
-  //   keywords: ["appointment", "reminder"]
-  // });
   // const results = await reddit.getLatestHot();
   // const results = await reddit.getLatestNew();
+
+  const results = await reddit.getLatest({
+    type: "hot",
+    number: 150
+    // keywords: ["appointment", "reminder"]
+  });
+
+  if (!results.length) {
+    console.log("No results");
+  }
+
+  results.forEach(result => {
+    console.log("\n");
+    console.log(`Title: ${result.title}`);
+    console.log(`Link: ${result.link}`);
+    console.log("\n");
+  });
 })();
